@@ -1,12 +1,12 @@
-import {VideoList} from './components/Videolist'
+import HomePage from "./MainPage";
 
 function App() {
   return (
     <>
-      <h1>Hello World</h1>
-      <VideoList />
+      <HomePage />
     </>
   );
 }
 
 export default App;
+
