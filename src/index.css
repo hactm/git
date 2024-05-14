@@ -1,3 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
 .app {
     background-color: blueviolet;
+}
+
+.catalog-enter {
+    opacity: 0;
+    transform: scale(0.9);
+}
+.catalog-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 300ms, transform 300ms;
+}
+.catalog-exit {
+    opacity: 1;
+}
+.catalog-exit-active {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 300ms, transform 300ms;
+}
+
+.main-text-enter {
+    opacity: 0;
+    transform: scale(0.4);
+}
+.main-text-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 300ms, transform 300ms;
+}
+.main-text-exit {
+    opacity: 1;
+}
+.main-text-exit-active {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 300ms, transform 300ms;
 }
