@@ -7,6 +7,14 @@ import {Button} from "react-bootstrap";
 import { CSSTransition } from 'react-transition-group'
 import './index.css'
 
+const models = [
+    {
+        Title:"A-class",
+        Text:"Маленькое описание А класса",
+        Img:"http://164.92.207.100/a-class.jpeg",
+    },
+]
+
 const HomePage = () => {
     const [showCatalog, setShowCatalog] = useState(false);
     const [showMainText, setShowMainText] = useState(false);
@@ -18,7 +26,7 @@ const HomePage = () => {
     return (
         <div>
             <Card className="bg-dark text-black">
-                <Card.Img src="https://www.mercedes-benz.com/content/dam/brandhub/vehicles/vehicle-overview/01-mercedes-benz-vehicles-passnger-cars-vans-3400x1440.cbv20230517105847.jpg/_jcr_content/renditions/mq7-original-aspect.jpeg" alt="Card image" />
+                <Card.Img src="http://164.92.207.100/main-image.avif" alt="Card image" />
                 <Card.ImgOverlay>
                     <Navbar collapseOnSelect expand="lg" className="shadow-lg">
                         <Container>
@@ -58,16 +66,24 @@ const HomePage = () => {
                         <Container ref={catalogRef}
                                    style={{backgroundColor: 'rgba(52, 52, 52, 0.4)', marginTop: '6px'}}>
                             <Card style={{ width: '18rem' }}>
-                                <Card.Img variant="top" src="http://164.92.207.100/a-class.jpeg" />
-                                <Card.Body>
-                                    <Card.Title>A-class</Card.Title>
-                                    <Card.Text>
-                                        Маленькое описание А класса
-                                    </Card.Text>
-                                    <Button className="bg-white text-black" variant="primary">Посмотреть модель</Button>
-                                </Card.Body>
+
+                                {models.map((model) => {
+                                    
+                                        <>
+                                            <Card.Img variant="top" src={model.Img} />
+                                            <Card.Body>
+                                                <Card.Title>{model.Title}</Card.Title>
+
+                                                <Card.Text>{model.Text}</Card.Text>
+                                                <Button className="bg-white text-black" variant="primary">Посмотреть модель</Button>
+                                            </Card.Body>
+                                        </>
+                                    })}
+                                
                             </Card>
+                            
                         </Container>
+                        
                     </CSSTransition>
                 </Card.ImgOverlay>
             </Card>
