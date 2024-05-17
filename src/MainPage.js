@@ -21,9 +21,9 @@ const HomePage = () => {
     const catalogRef = useRef(null);
     const mainRef = useRef(null);
     setInterval(() => {
-        setShowMainText(true);
+        setShowMainText(true);}, 100);
 
-    const [DefaultModels, setDefaultModels] = useState([]); 
+    const [defaultModels, setDefaultModels] = useState([]); 
  
     const getApiData = async () => {  
         const response = await fetch(  
@@ -36,7 +36,7 @@ const HomePage = () => {
         useEffect(() => {  
             getApiData();  
         }, []);
-    }, 100);
+
     return (
         <div>
             <Card className="bg-dark text-black">
@@ -79,24 +79,12 @@ const HomePage = () => {
                                    unmountOnExit>
                         <Container ref={catalogRef}
                                    style={{backgroundColor: 'rgba(52, 52, 52, 0.4)', marginTop: '6px'}}>
-                            {DefaultModels.map(() => 
+                            {defaultModels.map((defaultModel) => 
                                 <>
                                     <Card style={{ width: '18rem' }}>
-                                        <Card.Img variant="top" src={"http://164.92.207.100/a-class.jpeg"} />
+                                        <Card.Img variant="top" src={defaultModel.base_image_url} />
                                         <Card.Body>
-                                            <Card.Title>{}</Card.Title>
-                                            <Card.Text>{}</Card.Text>
-                                            <Button className="bg-white text-black" variant="primary">Посмотреть модель</Button>
-                                        </Card.Body>
-                                    </Card>
-                                </>
-                            )}
-                             {DefaultModels.map(() => 
-                                <>
-                                    <Card style={{ width: '18rem' }}>
-                                        <Card.Img variant="top" src={"http://164.92.207.100/a-class.jpeg"} />
-                                        <Card.Body>
-                                            <Card.Title>{}</Card.Title>
+                                            <Card.Title>{defaultModel.little_description}</Card.Title>
                                             <Card.Text>{}</Card.Text>
                                             <Button className="bg-white text-black" variant="primary">Посмотреть модель</Button>
                                         </Card.Body>
