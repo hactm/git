@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -7,21 +7,35 @@ import {Button} from "react-bootstrap";
 import { CSSTransition } from 'react-transition-group'
 import './index.css'
 
-const models = [
-    {
-        Title:"A-class",
-        Text:"Маленькое описание А класса",
-        Img:"http://164.92.207.100/a-class.jpeg",
-    },
-]
+
+
+
+
 
 const HomePage = () => {
+
+  
+
     const [showCatalog, setShowCatalog] = useState(false);
     const [showMainText, setShowMainText] = useState(false);
     const catalogRef = useRef(null);
     const mainRef = useRef(null);
     setInterval(() => {
         setShowMainText(true);
+
+    const [DefaultModels, setDefaultModels] = useState([]); 
+ 
+    const getApiData = async () => {  
+        const response = await fetch(  
+            "http://164.92.207.100/default_models" 
+        ).then((response) => response.json());  
+      
+            setDefaultModels(response);  
+        };  
+      
+        useEffect(() => {  
+            getApiData();  
+        }, []);
     }, 100);
     return (
         <div>
@@ -65,23 +79,30 @@ const HomePage = () => {
                                    unmountOnExit>
                         <Container ref={catalogRef}
                                    style={{backgroundColor: 'rgba(52, 52, 52, 0.4)', marginTop: '6px'}}>
-                            <Card style={{ width: '18rem' }}>
-
-                                {models.map((model) => {
-                                    
-                                        <>
-                                            <Card.Img variant="top" src={model.Img} />
-                                            <Card.Body>
-                                                <Card.Title>{model.Title}</Card.Title>
-
-                                                <Card.Text>{model.Text}</Card.Text>
-                                                <Button className="bg-white text-black" variant="primary">Посмотреть модель</Button>
-                                            </Card.Body>
-                                        </>
-                                    })}
-                                
-                            </Card>
-                            
+                            {DefaultModels.map(() => 
+                                <>
+                                    <Card style={{ width: '18rem' }}>
+                                        <Card.Img variant="top" src={"http://164.92.207.100/a-class.jpeg"} />
+                                        <Card.Body>
+                                            <Card.Title>{}</Card.Title>
+                                            <Card.Text>{}</Card.Text>
+                                            <Button className="bg-white text-black" variant="primary">Посмотреть модель</Button>
+                                        </Card.Body>
+                                    </Card>
+                                </>
+                            )}
+                             {DefaultModels.map(() => 
+                                <>
+                                    <Card style={{ width: '18rem' }}>
+                                        <Card.Img variant="top" src={"http://164.92.207.100/a-class.jpeg"} />
+                                        <Card.Body>
+                                            <Card.Title>{}</Card.Title>
+                                            <Card.Text>{}</Card.Text>
+                                            <Button className="bg-white text-black" variant="primary">Посмотреть модель</Button>
+                                        </Card.Body>
+                                    </Card>
+                                </>
+                            )}
                         </Container>
                         
                     </CSSTransition>
