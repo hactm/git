@@ -8,7 +8,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route exact path="default_model/:id" render={(props) => (<DefaultModel id={props.match.params.id}/>)} />
+          <Route exact path="default_model/:modelId" element={<DefaultModel/>} />
         </Routes>
       </BrowserRouter>
 

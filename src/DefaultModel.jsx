@@ -6,6 +6,7 @@ import Card from 'react-bootstrap/Card';
 import {Button} from "react-bootstrap";
 import { CSSTransition } from 'react-transition-group'
 import './index.css'
+import { useParams } from 'react-router-dom'
 
 
 
@@ -22,7 +23,7 @@ const HomePage = () => {
     const mainRef = useRef(null);
     setInterval(() => {
         setShowMainText(true);}, 100);
-
+    let {modelId}=useParams()
     const [defaultModels, setDefaultModels] = useState([]); 
  
     const getApiData = async () => {  
@@ -39,7 +40,7 @@ const HomePage = () => {
 
     return (
         <div>
-            {this.props.id}
+            {modelId}
             <Card className="bg-dark text-black">
                 <Card.Img src="http://164.92.207.100/main-image.avif" alt="Card image" />
                 <Card.ImgOverlay>
