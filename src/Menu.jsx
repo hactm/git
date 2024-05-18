@@ -63,7 +63,7 @@ const Menu = () => {
                     {defaultModels.map((defaultModel) =>
                         <>
                             <Card style={{width: '16rem', margin: '7px'}}>
-                                <Card.Img variant="top" src={defaultModel.base_image_url}/>
+                                <Card.Img variant="top" src={defaultModel.little_image_url}/>
                                 <Card.Body>
                                     <Card.Title>{defaultModel.little_description}</Card.Title>
                                     <Card.Text>{}</Card.Text>

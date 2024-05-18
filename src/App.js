@@ -1,13 +1,32 @@
 import HomePage from "./MainPage";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import DefaultModel from './DefaultModel';
+import MainPage from './MainPage'
+import {useEffect, useState} from "react";
+
+export function useIsVisible(ref) {
+    {
+        const [isIntersecting, setIntersecting] = useState(false);
+
+        useEffect(() => {
+            const sections = document.querySelectorAll('section');
+            const observer = new IntersectionObserver(([entry]) =>
+                setIntersecting(entry.isIntersecting)
+            );
+
+            observer.observe(ref.current);
+        }, [ref]);
+
+        return isIntersecting;
+    }
+}
 
 function App() {
   return (
     <>   
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<MainPage />} />
           <Route exact path="default_model/:modelId" element={<DefaultModel/>} />
         </Routes>
       </BrowserRouter>
