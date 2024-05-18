@@ -78,15 +78,18 @@ const HomePage = () => {
                     <CSSTransition nodeRef={catalogRef} in={showCatalog} classNames='catalog' timeout={200}
                                    unmountOnExit>
                         <Container ref={catalogRef}
-                                   style={{backgroundColor: 'rgba(52, 52, 52, 0.4)', marginTop: '6px'}}>
+                                   style={{backgroundColor: 'rgba(52, 52, 52, 0.4)', marginTop: '6px',  display: 'flex',
+                                   flexWrap: 'wrap',
+                                   alignContent: 'flex-start',
+                                   height: '100%'}} classNames='parent'>
                             {defaultModels.map((defaultModel) => 
                                 <>
-                                    <Card style={{ width: '18rem' }}>
+                                    <Card style={{ width: '16rem', margin:'7px'}}>
                                         <Card.Img variant="top" src={defaultModel.base_image_url} />
                                         <Card.Body>
                                             <Card.Title>{defaultModel.little_description}</Card.Title>
                                             <Card.Text>{}</Card.Text>
-                                            <Button className="bg-white text-black" variant="primary">Посмотреть модель</Button>
+                                            <Button className="bg-white text-black" variant="primary" >Посмотреть модель</Button>
                                         </Card.Body>
                                     </Card>
                                 </>
