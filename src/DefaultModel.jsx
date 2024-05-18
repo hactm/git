@@ -11,6 +11,7 @@ import Menu from "./Menu";
 import Footer from "./Footer"
 import {useIsVisible} from "./MainPage";
 import RightContainer from './RightContainer'
+import LeftContainer from "./LeftContainer";
 
 
 
@@ -39,7 +40,8 @@ const DefaultModel = () => {
                 <Card.Img src={defaultModel.base_image_url} alt="Card image" />
                 <Card.ImgOverlay>
                     <Menu></Menu>
-                    <RightContainer upTransitionRef={false} title={defaultModel.name} description={defaultModel.description}></RightContainer>
+                    {(defaultModel.container_type === 'right') && <RightContainer upTransitionRef={false} title={defaultModel.name} description={defaultModel.description}></RightContainer>}
+                    {(defaultModel.container_type === 'left') && <LeftContainer upTransitionRef={false} title={defaultModel.name} description={defaultModel.description}>  </LeftContainer>}
                 </Card.ImgOverlay>
             </Card>
             <Footer></Footer>
