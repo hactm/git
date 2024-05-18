@@ -7,6 +7,7 @@ import {Button} from "react-bootstrap";
 import { CSSTransition } from 'react-transition-group'
 import './index.css'
 import { useParams } from 'react-router-dom'
+import Menu from "./Menu";
 
 
 
@@ -38,31 +39,10 @@ const HomePage = () => {
 
     return (
         <div>
-            {modelId}
             <Card className="bg-dark text-black">
                 <Card.Img src="http://164.92.207.100/main-image.avif" alt="Card image" />
                 <Card.ImgOverlay>
-                    <Navbar collapseOnSelect expand="lg" className="shadow-lg">
-                        <Container>
-                            <Navbar.Brand href="/">
-                                Mercedes-Benz
-                                <img width="50" src="http://164.92.207.100/mercedes.png" />
-                            </Navbar.Brand>
-                            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                            <Navbar.Collapse id="responsive-navbar-nav">
-                                <Nav className="me-auto"> {/* Space between elements */}
-                                </Nav>
-                                <Nav>
-                                    <Nav.Link onClick={() => setShowCatalog(!showCatalog)}>
-                                        <span className="navbar-toggler-icon" style={{marginRight: '12px'}}></span>
-                                        Каталог
-                                    </Nav.Link>
-                                </Nav>
-                            </Navbar.Collapse>
-                        </Container>
-                    </Navbar>
-                   
-                   
+                    <Menu></Menu>
                 </Card.ImgOverlay>
             </Card>
         </div>
