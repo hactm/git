@@ -6,6 +6,7 @@ import Card from 'react-bootstrap/Card';
 import Menu from './Menu'
 import { CSSTransition } from 'react-transition-group'
 import './index.css'
+import Footer from "./Footer";
 
 export function useIsVisible(ref) {
     {
@@ -80,22 +81,7 @@ const HomePage = () => {
                     </CSSTransition>
                 </Card.ImgOverlay>
             </Card>
-            <Navbar collapseOnSelect expand="lg" className="shadow-lg"
-                    style={{display: 'flex', flexDirection: 'column-reverse', height: '100%'}} classNames='parent'>
-                <Container>
-                    <Navbar.Brand href="/">
-                        Mercedes-Benz
-                        <img width="50" src="http://164.92.207.100/mercedes.png"/>
-                    </Navbar.Brand>
-                    <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
-                    <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="me-auto"> {/* Space between elements */}</Nav>
-                        <Nav>+375 29 603 99 99</Nav>
-                        <Nav className="me-auto"> {/* Space between elements */}</Nav>
-                        <Nav>Тимирязева, д. 70, Минск, 220035</Nav>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
+            <Footer></Footer>
         </div>
     );
 }
