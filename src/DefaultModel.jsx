@@ -94,7 +94,7 @@ const DefaultModel = () => {
                                                     window.sessionStorage.setItem(`wheel_id_${modelId}`, wheel.id);
                                                     getModelData();
                                                 }} padding="0" style={{backgroundColor: 'rgba(52, 52, 52, 0.2)',width: '180px', height: '170px',}}>
-                                                    <Card.Img src={wheel.image_url} style={{margin: '0', width: '150px', height: '150px'}}/>
+                                                    <Card.Img src={wheel?.image_url} style={{margin: '0', width: '150px', height: '150px'}}/>
                                                 </Button>
                                             </>
                                         )}
@@ -105,7 +105,7 @@ const DefaultModel = () => {
                                                     window.sessionStorage.setItem(`color_id_${modelId}`, color.id);
                                                     getModelData();
                                                 }} padding="0" style={{backgroundColor: 'rgba(52, 52, 52, 0.2)',width: '180px', height: '170px',}}>
-                                                    <Card.Img src={color.image_url} style={{margin: '0', width: '150px', height: '150px'}}/>
+                                                    <Card.Img src={color?.image_url} style={{margin: '0', width: '150px', height: '150px'}}/>
                                                 </Button>
                                             </>
                                         )}
