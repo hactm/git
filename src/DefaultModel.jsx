@@ -122,6 +122,7 @@ const DefaultModel = () => {
                                     <Button onClick={() => setConfigElement('colors')} variant="primary" padding="0" style={{backgroundColor: 'rgba(52, 52, 52, 0.2)',width: '180px', height: '150px',}}>
                                         <Card.Img src='http://164.92.207.100/modelsicon/conf_korpus.png' style={{ width: '155px', height: '124px'}}/>
                                     </Button>
+                                    <Button variant="light"style={{width:'180px', height:'40',marginTop: '285px'}}>Цена: 39999$</Button>
                                 </Container>
                             </Container>
                         </Col>
