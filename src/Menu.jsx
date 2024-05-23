@@ -67,7 +67,7 @@ const Menu = () => {
                                 <Card.Body>
                                     <Card.Title>{defaultModel.little_description}</Card.Title>
                                     <Card.Text>{}</Card.Text>
-                                    <Button onClick={() => navigate(`/default_model/${defaultModel.id}`)} className="bg-white text-black" variant="primary">Посмотреть модель</Button>
+                                    <Button onClick={() => {navigate(`/default_model/${defaultModel.id}`); navigate(0)}} className="bg-white text-black" variant="primary">Посмотреть модель</Button>
                                 </Card.Body>
                             </Card>
                         </>
