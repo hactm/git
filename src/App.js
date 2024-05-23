@@ -21,6 +21,14 @@ export function useIsVisible(ref) {
     }
 }
 
+export function handleScroll() {
+    window.scroll({
+        top: document.body.offsetHeight,
+        left: 0,
+        behavior: 'smooth',
+    });
+}
+
 function App() {
   return (
     <>   
