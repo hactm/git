@@ -12,6 +12,7 @@ import Footer from "./Footer"
 import {useIsVisible} from "./MainPage";
 import RightContainer from './RightContainer'
 import LeftContainer from "./LeftContainer";
+import {handleScroll} from "./App.js"
 import './App.css';
 
 
@@ -61,7 +62,7 @@ const DefaultModel = () => {
                     {(defaultModel.default_model.container_type === 'right') && <RightContainer upTransitionRef={false} title={defaultModel.default_model.name} description={defaultModel.default_model.description}></RightContainer>}
                     <div class="wrap">
                         <Container>
-                        <Button className="text-grey" variant="primary"
+                        <Button onClick={handleScroll} className="text-grey" variant="primary"
                         position="absolute"
                         style={{backgroundColor: 'rgba(52, 52, 52, 0.4)',
                         display: 'flex',
