@@ -56,7 +56,7 @@ const DefaultModel = () => {
         <div>
             <Card className="bg-dark text-black">
                 <Card.Img src={defaultModel.default_model.base_image_url} alt="Card image" />
-                <Card.ImgOverlay>
+                <Card.ImgOverlay style={{backgroundColor: 'rgba(52, 52, 52, 0.2)'}}>
                     <Menu></Menu>
                    
                     {(defaultModel.default_model.container_type === 'right') && <RightContainer upTransitionRef={false} title={defaultModel.default_model.name} description={defaultModel.default_model.description}></RightContainer>}
@@ -79,11 +79,11 @@ const DefaultModel = () => {
 
             <Card>
                 <Card.Img src='http://164.92.207.100/modelsicon/conf_a_class.png' alt="Card image"/>
-                <CardImgOverlay >
-                    <Row style={{backgroundColor: 'rgba(52, 52, 52, 0.8)',  width: '90%', margin:'3%', padding:'1%', alignContent:"center" }}>
+                <CardImgOverlay>
+                    <Row style={{backgroundColor: 'rgba(52, 52, 52, 0.8)',  width: '90%', marginLeft:'3%', padding:'1%', alignContent:"center" }}>
                         <Col>
                             <Row>
-                                <Container style={{marginBottom:'3%', height: '700px',width: '880px'}}>
+                                <Container style={{padding: "0", height: '680px',width: '880px'}}>
                                     <CardImg src={defaultModel.image_url}/>
                                 </Container>
                             </Row>
