@@ -37,14 +37,14 @@ const DefaultModel = () => {
             `http://164.92.207.100/default_models/${modelId}?wheel_id=${window.sessionStorage.getItem(`wheel_id_${modelId}`)}&color_id=${window.sessionStorage.getItem(`color_id_${modelId}`)}`
         ).then((response) => response.json());
 
-        setDefaultModel({default_model: response, image_url: image_url_response.image_url});
+        setDefaultModel({default_model: response, image_url: image_url_response.image_url, cost: image_url_response.cost});
     };
 
     const getModelData = async () => {
-        const image_url_response = await fetch(
+        const response = await fetch(
             `http://164.92.207.100/default_models/${modelId}?wheel_id=${window.sessionStorage.getItem(`wheel_id_${modelId}`)}&color_id=${window.sessionStorage.getItem(`color_id_${modelId}`)}`
         ).then((response) => response.json());
-        setDefaultModel({default_model: defaultModel.default_model, image_url: image_url_response.image_url})
+        setDefaultModel({default_model: defaultModel.default_model, image_url: response.image_url, cost: response.cost })
     };
 
     useEffect(() => {
@@ -124,7 +124,7 @@ const DefaultModel = () => {
                                     <Button onClick={() => setConfigElement('colors')} variant="primary" padding="0" style={{backgroundColor: 'rgba(52, 52, 52, 0.2)',width: '180px', height: '150px',}}>
                                         <Card.Img src='http://164.92.207.100/modelsicon/conf_korpus.png' style={{ width: '155px', height: '124px'}}/>
                                     </Button>
-                                    <Button variant="light"style={{width:'180px', height:'40',marginTop: '285px'}}>Цена: 39999$</Button>
+                                    <Button variant="light" style={{width:'180px', height:'40',marginTop: '285px'}}>Цена: ${defaultModel?.cost}</Button>
                                 </Container>
                             </Container>
                         </Col>
